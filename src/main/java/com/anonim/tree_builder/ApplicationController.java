@@ -5,7 +5,6 @@ import com.anonim.tree_builder.JavaFXControllers.*;
 import com.anonim.tree_builder.JavaFXControllers.Control.*;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor.NodeEditorController;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor.StyleCreationHandler;
-import com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor.StyleEditorController;
 import com.anonim.tree_builder.JsonHandler.NewFileAction;
 import com.anonim.tree_builder.JsonHandler.OpenFileAction;
 import com.anonim.tree_builder.JsonHandler.SaveFileAction;
@@ -14,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
@@ -174,7 +172,7 @@ public class ApplicationController {
     }
 
     public static void changeVisibilityOfCreateLinkButton(boolean value) {
-        Application.controller.createLinkButton.setVisible(value);
+        Main.controller.createLinkButton.setVisible(value);
     }
 
     // DELETE LINK BUTTON
@@ -185,7 +183,7 @@ public class ApplicationController {
     }
 
     public static void changeVisibilityOfDeleteNodeButton(boolean value) {
-        Application.controller.deleteNodeButton.setVisible(value);
+        Main.controller.deleteNodeButton.setVisible(value);
     }
 
     // NODE EDITOR

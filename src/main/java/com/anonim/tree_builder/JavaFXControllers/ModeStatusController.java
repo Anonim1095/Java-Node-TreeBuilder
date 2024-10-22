@@ -1,9 +1,7 @@
 package com.anonim.tree_builder.JavaFXControllers;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Canvas.TreeCanvas;
-import com.anonim.tree_builder.Tree;
-import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
 
 public class ModeStatusController {
 
@@ -16,9 +14,9 @@ public class ModeStatusController {
             System.out.println("Displaying modeStatus");
             String text = LINK_TEXT;
             text += TreeCanvas.connectingParent.getContent();
-            Application.controller.updateModeStatusText(text);
+            Main.controller.updateModeStatusText(text);
         } else {
-            Application.controller.updateModeStatusText(STANDARD_TEXT);
+            Main.controller.updateModeStatusText(STANDARD_TEXT);
         }
     }
 

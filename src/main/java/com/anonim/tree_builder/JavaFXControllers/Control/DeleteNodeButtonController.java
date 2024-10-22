@@ -1,9 +1,7 @@
 package com.anonim.tree_builder.JavaFXControllers.Control;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.ApplicationController;
-import com.anonim.tree_builder.Canvas.TreeCanvas;
-import com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor.NodeEditorController;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeNode;
 import com.anonim.tree_builder.TreeNodes.TreeNodeJoint;
@@ -13,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class DeleteNodeButtonController {
 
@@ -93,7 +90,7 @@ public class DeleteNodeButtonController {
                 destroyAllLinksNodeLink(linkClass);
                 Tree.removeNodeLink(linkClass);
             }
-            Application.update();
+            Main.update();
         }
     }
 

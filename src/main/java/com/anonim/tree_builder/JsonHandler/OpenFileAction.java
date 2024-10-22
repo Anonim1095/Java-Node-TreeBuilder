@@ -1,11 +1,10 @@
 package com.anonim.tree_builder.JsonHandler;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeInstance;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
 import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
 
@@ -22,7 +21,7 @@ public class OpenFileAction {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Tree Node");
         fileChooser.setSelectedExtensionFilter(TreeNodeExtensionFilter.getFilter());
-        File choosed = fileChooser.showOpenDialog(Application.stage);
+        File choosed = fileChooser.showOpenDialog(Main.stage);
         if (choosed != null) {
             try {
                 Reader reader = new FileReader(choosed);

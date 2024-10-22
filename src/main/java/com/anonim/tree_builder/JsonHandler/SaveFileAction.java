@@ -1,6 +1,6 @@
 package com.anonim.tree_builder.JsonHandler;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeInstance;
 import com.google.gson.Gson;
@@ -33,7 +33,7 @@ public class SaveFileAction {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Tree Node");
         fileChooser.setSelectedExtensionFilter(TreeNodeExtensionFilter.getFilter());
-        File choosed = fileChooser.showSaveDialog(Application.stage);
+        File choosed = fileChooser.showSaveDialog(Main.stage);
 
         if (choosed != null) {
             TreeInstance instance = Tree.saveInstance();

@@ -1,25 +1,19 @@
 package com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.ApplicationController;
 import com.anonim.tree_builder.DisplayClasses;
 import com.anonim.tree_builder.Enums.StandardColors;
 import com.anonim.tree_builder.JavaFXControllers.Control.UnselectStyleButtonController;
-import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeNodeClass;
 import com.anonim.tree_builder.TreeNodes.TreeNodeLinkClass;
-import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
 import javafx.event.ActionEvent;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 
@@ -29,7 +23,7 @@ public class ListController {
         TreeNodeClass selected = DisplayClasses.getSelected();
         if (selected != null) {
             if (selected.isInitialized()) {
-                ApplicationController controller = Application.controller;
+                ApplicationController controller = Main.controller;
 
                 controller.styleEditorNameField.setText(selected.getDisplayName());
                 controller.styleEditorForegroundColorPicker.setValue(selected.getForegroundColor());
@@ -86,7 +80,7 @@ public class ListController {
     public static void update() {
         Map<UUID, TreeNodeClass> styles = DisplayClasses.getStylesList();
         Map<UUID, TreeNodeLinkClass> linkStyles = DisplayClasses.getLinkStylesList();
-        VBox box = Application.controller.styleEditorListBox;
+        VBox box = Main.controller.styleEditorListBox;
 
         box.getChildren().clear();
 

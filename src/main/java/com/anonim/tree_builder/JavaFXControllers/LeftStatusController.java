@@ -1,6 +1,6 @@
 package com.anonim.tree_builder.JavaFXControllers;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
 
@@ -17,15 +17,15 @@ public class LeftStatusController {
         if (node != null) {
             if (node.itIsLinkNode()) {
                 if (node.itIsDependentLinkNode()) {
-                    Application.controller.updateLeftStatusText(LINK_TEXT);
+                    Main.controller.updateLeftStatusText(LINK_TEXT);
                 } else {
-                    Application.controller.updateLeftStatusText(JOINT_TEXT);
+                    Main.controller.updateLeftStatusText(JOINT_TEXT);
                 }
             } else {
-                Application.controller.updateLeftStatusText(NODE_TEXT);
+                Main.controller.updateLeftStatusText(NODE_TEXT);
             }
         } else {
-            Application.controller.updateLeftStatusText(STANDARD_TEXT);
+            Main.controller.updateLeftStatusText(STANDARD_TEXT);
         }
     }
 

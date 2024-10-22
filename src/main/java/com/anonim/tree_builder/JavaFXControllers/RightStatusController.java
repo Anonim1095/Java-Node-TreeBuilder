@@ -1,6 +1,6 @@
 package com.anonim.tree_builder.JavaFXControllers;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
 
@@ -11,9 +11,9 @@ public class RightStatusController {
     public static void updateRightStatusSelectedNode() {
         TreeNodeRoot node = Tree.getSelectedNode();
         if (node != null) {
-            Application.controller.updateRightStatusText(node.getIdentifier().toString());
+            Main.controller.updateRightStatusText(node.getIdentifier().toString());
         } else {
-            Application.controller.updateRightStatusText(STANDARD_TEXT);
+            Main.controller.updateRightStatusText(STANDARD_TEXT);
         }
     }
 

@@ -1,17 +1,12 @@
 package com.anonim.tree_builder.TreeNodes;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Enums.StandardStyle;
 import com.anonim.tree_builder.JavaFXControllers.ColorTransformer;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import javafx.css.converter.ColorConverter;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
-import java.security.Key;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -118,7 +113,7 @@ public class TreeInstance {
         ROOT.add("Nodes",NODES);
         ROOT.add("Joints",JOINTS);
         ROOT.add("Links",LINKS);
-        ROOT.addProperty("VERSION", Application.TREE_VERSION);
+        ROOT.addProperty("VERSION", Main.TREE_VERSION);
         return ROOT;
     };
 

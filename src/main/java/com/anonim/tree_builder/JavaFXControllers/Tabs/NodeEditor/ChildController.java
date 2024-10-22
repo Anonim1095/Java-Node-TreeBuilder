@@ -1,15 +1,10 @@
 package com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor;
 
-import com.anonim.tree_builder.Application;
-import com.anonim.tree_builder.ApplicationController;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Enums.StandardColors;
-import com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor.StyleEditorController;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
-import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -37,7 +32,7 @@ public class ChildController {
         TreeNodeRoot selected = Tree.getSelectedNode();
         if (selected != null) {
             ArrayList<TreeNodeRoot> children = selected.getChildrenArray();
-            VBox box = Application.controller.childListBox;
+            VBox box = Main.controller.childListBox;
             updateChild(box,children);
         }
     }

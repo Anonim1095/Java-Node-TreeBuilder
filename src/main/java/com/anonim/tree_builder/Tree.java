@@ -115,7 +115,7 @@ public class Tree {
 
         DisplayClasses.loadInstance(instance);
 
-        Application.update();
+        Main.update();
     }
 
     public static TreeInstance saveInstance() {

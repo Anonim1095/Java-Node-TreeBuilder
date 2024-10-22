@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Application extends javafx.application.Application {
+public class Main extends javafx.application.Application {
 
     public static ApplicationController controller;
     public static Stage stage;
@@ -40,7 +40,7 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage applicationStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1054, 603);
 
         applicationStage.setTitle("Tree Builder");

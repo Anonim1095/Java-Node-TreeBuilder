@@ -1,6 +1,6 @@
 package com.anonim.tree_builder.JavaFXControllers.Control;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Canvas.TreeCanvas;
 import com.anonim.tree_builder.Enums.StandardColors;
 import com.anonim.tree_builder.JavaFXControllers.ModeStatusController;
@@ -17,9 +17,9 @@ public class CreateConnectionButtonController {
 
     public static void updateStyle(boolean status) {
         if (status) {
-            Application.controller.connectNodesButton.setTextFill(ENABLED_COLOR);
+            Main.controller.connectNodesButton.setTextFill(ENABLED_COLOR);
         } else {
-            Application.controller.connectNodesButton.setTextFill(DISABLED_COLOR);
+            Main.controller.connectNodesButton.setTextFill(DISABLED_COLOR);
         }
     }
 

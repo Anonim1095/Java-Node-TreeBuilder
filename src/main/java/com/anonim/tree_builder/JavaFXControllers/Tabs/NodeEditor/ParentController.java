@@ -1,6 +1,6 @@
 package com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor;
 
-import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.Main;
 import com.anonim.tree_builder.Enums.StandardColors;
 import com.anonim.tree_builder.Tree;
 import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
@@ -32,7 +32,7 @@ public class ParentController {
         TreeNodeRoot selected = Tree.getSelectedNode();
         if (selected != null) {
             ArrayList<TreeNodeRoot> parents = selected.getParentArray();
-            VBox box = Application.controller.parentListBox;
+            VBox box = Main.controller.parentListBox;
             updateParents(box,parents);
         }
     }
