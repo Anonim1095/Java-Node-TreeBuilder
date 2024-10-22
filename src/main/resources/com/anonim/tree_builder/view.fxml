@@ -63,28 +63,12 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
+            <MenuItem mnemonicParsing="false" onAction="#newFileAction" text="New" />
+            <MenuItem mnemonicParsing="false" onAction="#openFileAction" text="Open…" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
+            <MenuItem mnemonicParsing="false" onAction="#closeFileAction" text="Close" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFileAction" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#saveAsFileAction" text="Save As…" />
           </items>
         </Menu>
       </menus>
@@ -159,8 +143,8 @@
       </AnchorPane>
         <AnchorPane prefHeight="693.0" prefWidth="658.0">
           <children>
-                  <Canvas fx:id="treeCanvas" height="535.0" layoutY="19.0" onContextMenuRequested="#onTreeCanvasContextMenu" onMouseDragged="#onTreeCanvasMouseDragged" onMousePressed="#onTreeCanvasMousePressed" onMouseReleased="#onTreeCanvasMouseReleased" onScroll="#onTreeCanvasScroll" width="453.0" />
-                  <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="453.0">
+                  <Canvas fx:id="treeCanvas" height="535.0" layoutY="19.0" onContextMenuRequested="#onTreeCanvasContextMenu" onMouseDragged="#onTreeCanvasMouseDragged" onMousePressed="#onTreeCanvasMousePressed" onMouseReleased="#onTreeCanvasMouseReleased" onScroll="#onTreeCanvasScroll" width="590.0" />
+                  <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="590.0">
                      <items>
                         <Button fx:id="newNodeButton" mnemonicParsing="false" onAction="#onNewNodeButtonAction" text="New Node" textAlignment="CENTER">
                            <font>

@@ -40,6 +40,15 @@ public class TreeNodeLink implements TreeNodeRoot {
         displayClass.addNodeUsesThisStyle(this);
     }
 
+    public TreeNodeLink(TreeNode owner, TreeNodeLinkClass displayClass, UUID identifier) {
+        this.owner = owner;
+        this.displayClass = displayClass;
+
+        this.identifier = identifier;
+
+        displayClass.addNodeUsesThisStyle(this);
+    }
+
     public boolean hasParent() {
         return !parent.isEmpty();
     }

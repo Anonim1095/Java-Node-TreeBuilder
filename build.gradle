@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.anonim.tree_builder'
-    mainClass = 'com.anonim.tree_builder.HelloApplication'
+    mainClass = 'com.anonim.tree_builder.Application'
 }
 
 javafx {
@@ -39,6 +39,7 @@ dependencies {
     implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
         exclude(group: 'org.openjfx')
     }
+    implementation('com.google.code.gson:gson:2.11.0')
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

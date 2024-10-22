@@ -1,14 +1,12 @@
 package com.anonim.tree_builder;
 
+import com.anonim.tree_builder.Canvas.TreeCanvas;
 import com.anonim.tree_builder.JavaFXControllers.Control.CreateLinkButtonController;
 import com.anonim.tree_builder.JavaFXControllers.Control.DeleteNodeButtonController;
 import com.anonim.tree_builder.JavaFXControllers.LeftStatusController;
 import com.anonim.tree_builder.JavaFXControllers.RightStatusController;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor.NodeEditorController;
-import com.anonim.tree_builder.TreeNodes.TreeNode;
-import com.anonim.tree_builder.TreeNodes.TreeNodeJoint;
-import com.anonim.tree_builder.TreeNodes.TreeNodeLink;
-import com.anonim.tree_builder.TreeNodes.TreeNodeRoot;
+import com.anonim.tree_builder.TreeNodes.*;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -38,8 +36,8 @@ public class Tree {
     }
 
     public static void removeNodeLink(TreeNodeLink node) {
-        if (TreeJoints.containsKey(node.getIdentifier())) {
-            TreeJoints.remove(node.getIdentifier());
+        if (TreeNodesLinks.containsKey(node.getIdentifier())) {
+            TreeNodesLinks.remove(node.getIdentifier());
         }
     }
 
@@ -91,6 +89,37 @@ public class Tree {
         CreateLinkButtonController.update();
         DeleteNodeButtonController.update();
         NodeEditorController.update();
+    }
+
+    // SPECIAL
+
+    public static void loadInstance(TreeInstance instance) {
+        unselectNode();
+        TreeNodes.forEach((uuid, node) -> {
+            DeleteNodeButtonController.destroyAllLinksNode(node);
+        });
+        TreeNodesLinks.forEach((uuid, node) -> {
+            DeleteNodeButtonController.destroyAllLinksNodeLink(node);
+        });
+        TreeJoints.forEach((uuid, node) -> {
+            DeleteNodeButtonController.destroyAllLinksNodeJoint(node);
+        });
+
+        TreeCanvas.displayX = 0;
+        TreeCanvas.displayY = 0;
+        TreeCanvas.displayZoom = 1;
+
+        TreeNodes = instance.getTreeNodes();
+        TreeNodesLinks = instance.getTreeLinks();
+        TreeJoints = instance.getTreeJoints();
+
+        DisplayClasses.loadInstance(instance);
+
+        Application.update();
+    }
+
+    public static TreeInstance saveInstance() {
+        return new TreeInstance(TreeNodes,TreeJoints,TreeNodesLinks,DisplayClasses.getStylesList(),DisplayClasses.getLinkStylesList());
     }
 
 }

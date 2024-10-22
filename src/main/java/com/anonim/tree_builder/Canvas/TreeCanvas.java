@@ -24,7 +24,7 @@ import static com.anonim.tree_builder.Canvas.BaseCanvas.STANDARD_FONT_FAMILY;
 public class TreeCanvas {
 
     final static int MAX_SIZE = 2000;
-    final static float MIN_ZOOM = 0.05f;
+    final static float MIN_ZOOM = 0.25f;
     final static float MAX_ZOOM = 5.0f;
 
     public static double displayX = 0;

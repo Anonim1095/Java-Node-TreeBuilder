@@ -1,5 +1,6 @@
 package com.anonim.tree_builder.JavaFXControllers.Control;
 
+import com.anonim.tree_builder.Application;
 import com.anonim.tree_builder.ApplicationController;
 import com.anonim.tree_builder.Canvas.TreeCanvas;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor.NodeEditorController;
@@ -71,7 +72,7 @@ public class DeleteNodeButtonController {
         TreeNodeRoot selected = Tree.getSelectedNode();
         if (selected != null) {
             TreeNode owner;
-            if (!selected.itIsLinkNode()) {
+            if (selected instanceof TreeNode) {
                 owner = (TreeNode) selected;
 
                 ArrayList<TreeNodeLink> links = owner.getLinksArray();
@@ -83,18 +84,16 @@ public class DeleteNodeButtonController {
                 });
 
                 Tree.removeNode(owner.getIdentifier());
-            } else if (selected.itIsLinkNode() && !selected.itIsDependentLinkNode()){
+            } else if (selected instanceof TreeNodeJoint) {
                 TreeNodeJoint jointClass = (TreeNodeJoint) selected;
                 destroyAllLinksNodeJoint(jointClass);
                 Tree.removeNodeJoint(jointClass);
-            } else {
+            } else if (selected instanceof  TreeNodeLink) {
                 TreeNodeLink linkClass = (TreeNodeLink) selected;
                 destroyAllLinksNodeLink(linkClass);
                 Tree.removeNodeLink(linkClass);
             }
-            Tree.unselectNode();
-            TreeCanvas.display(canvas);
-            NodeEditorController.update();
+            Application.update();
         }
     }
 

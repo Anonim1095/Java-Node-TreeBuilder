@@ -47,6 +47,14 @@ public class TreeNode implements TreeNodeRoot {
         displayClass.addNodeUsesThisStyle(this);
     }
 
+    public TreeNode(String content, TreeNodeClass displayClass, UUID identifier) {
+        this.content = content;
+        this.identifier =identifier;
+        this.displayClass = displayClass;
+
+        displayClass.addNodeUsesThisStyle(this);
+    }
+
     public TreeNode() {
         this.identifier = UUID.randomUUID();
 

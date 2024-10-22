@@ -6,6 +6,10 @@ import com.anonim.tree_builder.JavaFXControllers.Control.*;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.NodeEditor.NodeEditorController;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor.StyleCreationHandler;
 import com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor.StyleEditorController;
+import com.anonim.tree_builder.JsonHandler.NewFileAction;
+import com.anonim.tree_builder.JsonHandler.OpenFileAction;
+import com.anonim.tree_builder.JsonHandler.SaveFileAction;
+import com.anonim.tree_builder.TreeNodes.TreeInstance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -194,19 +198,19 @@ public class ApplicationController {
     // STYLE EDITOR
     @FXML
     protected void styleEditorNameFieldTextAction(ActionEvent event) {
-
+        StyleEditorNameFieldAction.action(event);
         System.out.println("styleEditorNameFieldTextAction");
     }
 
     @FXML
     protected void styleEditorBackgroundColorPickerAction(ActionEvent event) {
-
+        StyleEditorColorPickerAction.actionBackground(event);
         System.out.println("styleEditorBackgroundColorPickerAction");
     }
 
     @FXML
     protected void styleEditorForegroundColorPickerAction(ActionEvent event) {
-
+        StyleEditorColorPickerAction.actionForeground(event);
         System.out.println("styleEditorForegroundColorPickerAction");
     }
 
@@ -232,6 +236,39 @@ public class ApplicationController {
     protected void styleEditorCreateDeleteStyleButtonAction(ActionEvent event) {
         DeleteStyleButtonController.action(event);
         System.out.println("styleEditorUnselectStyleButtonAction");
+    }
+
+    // FILE MENU!!!!
+
+    @FXML
+    protected void newFileAction(ActionEvent event) {
+        NewFileAction.action(event);
+        System.out.println("newFileAction");
+    }
+
+    @FXML
+    protected void openFileAction(ActionEvent event) {
+        OpenFileAction.action(event);
+        System.out.println("openFileAction");
+    }
+
+    @FXML
+    protected void closeFileAction(ActionEvent event) {
+        TreeInstance instance = new TreeInstance();
+        Tree.loadInstance(instance);
+        System.out.println("closeFileAction");
+    }
+
+    @FXML
+    protected void saveFileAction(ActionEvent event) {
+        SaveFileAction.action(event);
+        System.out.println("saveFileAction");
+    }
+
+    @FXML
+    protected void saveAsFileAction(ActionEvent event) {
+        SaveFileAction.actionAdvanced(event);
+        System.out.println("saveAsFileAction");
     }
 
 }

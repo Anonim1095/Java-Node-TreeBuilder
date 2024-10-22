@@ -1,6 +1,7 @@
 package com.anonim.tree_builder.JavaFXControllers.Tabs.StyleEditor;
 
 import com.anonim.tree_builder.Application;
+import com.anonim.tree_builder.ApplicationController;
 import com.anonim.tree_builder.DisplayClasses;
 import com.anonim.tree_builder.Enums.StandardColors;
 import com.anonim.tree_builder.JavaFXControllers.Control.UnselectStyleButtonController;
@@ -24,6 +25,31 @@ import java.util.UUID;
 
 public class ListController {
 
+    public static void updateStyleDashboard() {
+        TreeNodeClass selected = DisplayClasses.getSelected();
+        if (selected != null) {
+            if (selected.isInitialized()) {
+                ApplicationController controller = Application.controller;
+
+                controller.styleEditorNameField.setText(selected.getDisplayName());
+                controller.styleEditorForegroundColorPicker.setValue(selected.getForegroundColor());
+                controller.styleEditorBackgroundColorPicker.setValue(selected.getBackgroundColor());
+            }
+        }
+    }
+
+    public static void selectStyle(TreeNodeClass style) {
+        DisplayClasses.setSelected(style);
+        UnselectStyleButtonController.update();
+        updateStyleDashboard();
+    }
+
+    public static void selectStyleLink(TreeNodeLinkClass style) {
+        DisplayClasses.setSelected(style);
+        UnselectStyleButtonController.update();
+        updateStyleDashboard();
+    }
+
     private static void updateList(VBox box, Map<UUID, TreeNodeClass> styles, Map<UUID, TreeNodeLinkClass> linkStyles) {
         styles.forEach((identifier, item) -> {
             if (item.isInitialized()) {
@@ -31,7 +57,7 @@ public class ListController {
                 Button itemButton = new Button("(NC) " + content);
                 itemButton.setPrefWidth(box.getWidth());
                 itemButton.addEventHandler(ActionEvent.ACTION, (event) -> {
-                    DisplayClasses.setSelected(item);
+                    selectStyle(item);
                     UnselectStyleButtonController.update();
                 });
                 Color color = StandardColors.EMPTY.getColor();
@@ -47,7 +73,7 @@ public class ListController {
                 Button itemButton = new Button("(LC) " + content);
                 itemButton.setPrefWidth(box.getWidth());
                 itemButton.addEventHandler(ActionEvent.ACTION, (event) -> {
-                    DisplayClasses.setSelected(item);
+                    selectStyleLink(item);
                     UnselectStyleButtonController.update();
                 });
                 Color color = StandardColors.EMPTY.getColor();

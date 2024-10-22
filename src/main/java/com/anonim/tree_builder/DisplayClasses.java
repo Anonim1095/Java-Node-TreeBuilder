@@ -1,6 +1,7 @@
 package com.anonim.tree_builder;
 
 import com.anonim.tree_builder.Enums.StandardStyle;
+import com.anonim.tree_builder.TreeNodes.TreeInstance;
 import com.anonim.tree_builder.TreeNodes.TreeNodeClass;
 import com.anonim.tree_builder.TreeNodes.TreeNodeLink;
 import com.anonim.tree_builder.TreeNodes.TreeNodeLinkClass;
@@ -91,6 +92,14 @@ public class DisplayClasses {
 
     public static boolean selectedLinkDisplayClass() {
         return selected instanceof TreeNodeLinkClass;
+    }
+
+    public static void loadInstance(TreeInstance instance) {
+        styles.clear();
+        linkStyles.clear();
+
+        styles = instance.getStyles();
+        linkStyles = instance.getLinkStyles();
     }
 
 }
